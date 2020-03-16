@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Vista.LoginView.RegistroView.VistaRegistro1">
+
+
+    <TextView
+        android:id="@+id/lblHola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="30dp"
+        android:text="@string/tituloRegistro"
+        android:textSize="30sp"
+        tools:ignore="MissingConstraints" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/logoImagen"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/ic_search_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/imageCamara"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_photo_camera_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/imageGaleria"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:contentDescription="@string/todo"
+                app:srcCompat="@drawable/ic_camera_roll_black_24dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/listar_mascotas" />
+
+            <Button
+                android:id="@+id/btnRegistrarUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/btguardar"
+
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+        <!-- formulario -->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+                <EditText
+                    android:id="@+id/etNombreReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hintnombre"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:importantForAutofill="no" />
+                <EditText
+                    android:id="@+id/etApellidoReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hintapellido"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:importantForAutofill="no" />
+                <EditText
+                    android:id="@+id/etTelefonoReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hinttelefono"
+                    android:inputType="phone"
+                    android:singleLine="true"
+                    android:importantForAutofill="no" />
+                <EditText
+                    android:id="@+id/etUsuarioReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hintUsuario"
+                    android:inputType="textPersonName"
+                    android:singleLine="true"
+                    android:importantForAutofill="no" />
+                <EditText
+                    android:id="@+id/etCorreoReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/hintcorreo"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:importantForAutofill="no" />
+
+
+                <EditText
+                    android:id="@+id/etPassReg"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="8dp"
+                    android:drawableLeft="@android:drawable/ic_secure"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/tituloPass"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:importantForAutofill="no"
+                    android:drawableStart="@android:drawable/ic_secure" />
+
+</LinearLayout>
+</ScrollView>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Mptest1</string>
+
+    <string name="findmypet">FindMyPet</string>
+    <string name="tituloCorreo">Correo</string>
+    <string name="tituloPass">Password</string>
+    <string name="btnAcceder">Acceder</string>
+    <string name="btRegistrar">Registrar</string>
+    <string name="title_activity_vista_principal">VistaPrincipal</string>
+    <!-- actividad de registro de ususario -->
+    <string name="tituloRegistro">Perfil de Usuario</string>
+    <string name="hintUsuario">Usuario</string>
+    <string name="hintnombre">Nombre</string>
+    <string name="hintapellido">Apellido</string>
+    <string name="hintcorreo">Correo</string>
+    <string name="hintpass">Contraseña</string>
+    <string name="hinttelefono">Telefono</string>
+    <string name="hintaddMascota">Agregar Mascota</string>
+    <string name="hintListado">Listado Mascotas</string>
+    <string name="btguardar">Guardar</string>
+    <!-- Agregar Mascotas -->
+    <string name="tituloPerfilMascota">Perfil Mascota</string>
+    <string name="hintMascotaNombre">Nombre Mascota</string>
+    <string name="hintraza">Raza</string>
+    <string name="hintColor">Color de mascota</string>
+    <string name="hintsexo">Sexo</string>
+    <string name="hintnacimiento">Fecha Nacimiento</string>
+    <string name="hintventerinario">Veterinario tratante</string>
+    <!-- Listado de mascotas -->
+    <string name="TituloListado">Listado de mascotas</string>
+    <string name="todo">TODO</string>
+    <string name="title_activity_vista_registro">titulo</string>
+    <string name="listar_mascotas">Listar Mascotas</string>
+    <string name="animalphoto">animalfoto</string>
+    <string name="icon1">icon1</string>
+    <string name="icon2">icon2</string>
+    <string name="icon3">icon3</string>
+    <string name="textview">textview</string>
+
+
+</resources>
