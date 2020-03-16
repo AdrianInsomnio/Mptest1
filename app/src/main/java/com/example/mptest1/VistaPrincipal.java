@@ -27,7 +27,8 @@ public class VistaPrincipal extends AppCompatActivity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
+// potro comentario
+        
         // specify an adapter (see also next example)
         //mAdapter = new MyAdapter(myDataset);
        // recyclerView.setAdapter(mAdapter);
