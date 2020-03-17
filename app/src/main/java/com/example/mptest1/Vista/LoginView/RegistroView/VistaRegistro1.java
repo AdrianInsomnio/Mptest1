@@ -207,6 +207,11 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
             case R.id.imageGaleria:
                 recuperarFoto(view);
                 break;
+            case R.id.listarMascotas:
+                // activiti con lista de mascotas de cada ususario
+                Toast.makeText(VistaRegistro1.this, "Listando  Mascotas", Toast.LENGTH_SHORT).show();
+                
+                break;
         }
 
 

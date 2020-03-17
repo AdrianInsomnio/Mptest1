@@ -12,27 +12,45 @@ android:layout_gravity="center_horizontal"
     <!-- titulo -->
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="63dp"
 
-        android:orientation="horizontal"
         android:layout_gravity="center_horizontal"
-        >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/findmypet"
-        android:textSize="40sp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
-        />
-
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_search_black_24dp"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:text="@string/findmypet"
+            android:textSize="40sp"
 
             />
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgusuario"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/g823" />
+
+        <ImageButton
+            android:id="@+id/btnAgregar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
+
+        <ImageButton
+            android:id="@+id/btnActualizar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/ic_refresh_black_24dp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:src="@drawable/perro1"
+            app:civ_border_overlay="true"
+             />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
     <!-- posteo
@@ -105,6 +123,7 @@ android:layout_gravity="center_horizontal"
             android:id="@+id/listadoPost"
             android:scrollbars="vertical"
             android:elevation="4dp"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerPublicacion">
+        <item>SE BUSCA</item>
+        <item>SE ENCOTRO</item>
+        <item>EN ADOPCION</item>
+        <item>SE BUSCA PARA CRUZA</item>
+        <item>ANUNCIO</item>
+    </string-array>
+</resources>

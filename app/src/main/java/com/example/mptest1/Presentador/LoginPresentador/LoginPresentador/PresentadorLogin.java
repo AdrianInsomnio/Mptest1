@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.mptest1.Modelo.Publicacion;
 import com.example.mptest1.Vista.LoginView.RegistroView.VistaRegistro1;
 import com.example.mptest1.VistaPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,14 @@ public class PresentadorLogin {
     private FirebaseAuth mAuth;
     private DatabaseReference mdb;
 
+    public void subirPub(){
+
+        DatabaseReference postsRef = mdb.child("Publicaciones");
+
+        DatabaseReference newPostRef = postsRef.push();
+        newPostRef.setValue(new Publicacion("01","Adrian","222","PomPon","20/04/2020","https://okdiario.com/img/2019/07/28/-como-sera-el-primer-ano-de-vida-de-mi-perro_-1-655x368.jpg","extraviado","su casa","s"));
+    }
+    
     public PresentadorLogin(Context mContext, FirebaseAuth mAuth, DatabaseReference mdb) {
         this.mContext = mContext;
         this.mAuth = mAuth;

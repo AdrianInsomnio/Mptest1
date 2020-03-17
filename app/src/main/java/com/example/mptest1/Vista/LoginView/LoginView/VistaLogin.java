@@ -59,6 +59,7 @@ public class VistaLogin extends AppCompatActivity implements View.OnClickListene
         DatabaseReference mDB =FirebaseDatabase.getInstance().getReference();
 //vinculo los campos de la vista
         presentadorLogin=new PresentadorLogin(this,nAuth,mDB);
+       // presentadorLogin.subirPub();
         nEtxtEmail = findViewById(R.id.etCorreo);
         nEtxtPass = findViewById(R.id.etPass);
 
