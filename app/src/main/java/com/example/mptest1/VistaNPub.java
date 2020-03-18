@@ -73,13 +73,13 @@ public class VistaNPub extends AppCompatActivity  implements View.OnClickListene
 
         if (requestCode == 100 && resultCode == RESULT_OK && data !=null &&data.getData() != null) {
 
-           // filepath = data.getData();
+            filepath = data.getData();
             imagenPublicacion.setImageURI(data.getData());
         }
         if (requestCode == 200 && resultCode == RESULT_OK && data !=null &&data.getData() != null) {
 
-            //filepath = data.getData();
-            imagenPublicacion.setImageBitmap((Bitmap) data.getExtras() .get("data"));
+            filepath = data.getData();
+           // imagenPublicacion.setImageBitmap((Bitmap) data.getExtras() .get("data"));
         }
     }
 

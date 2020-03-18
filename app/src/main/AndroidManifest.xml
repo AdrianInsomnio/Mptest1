@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VistaNPub"></activity>
+        <activity android:name=".VistaItem"></activity>
+        <activity android:name=".VistaNPub" />
         <activity android:name=".VistaItemFound" />
         <activity android:name=".VistaSplash">
             <intent-filter>
