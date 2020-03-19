@@ -64,7 +64,7 @@ public class PresentadorLogin {
                             Log.d(TAG, "signInWithEmail:Exitoso");
                             dialog.dismiss();
                             mdb.child("Usuarios").setValue(task.getResult().getUser().getUid());
-                            Toast.makeText(mContext, "Bienvenido",
+                            Toast.makeText(mContext, "Bienvenido" ,
                                     Toast.LENGTH_SHORT).show();
                             Intent inten= new Intent(mContext, VistaPrincipal.class);
                             mContext.startActivity(inten);

@@ -1,13 +1,23 @@
 package com.example.mptest1.Modelo;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String nombreUsuarioReg ;
     private String nombreReg;
     private String apellidoReg;
     private String emailReg ;
     private String telefonoReg;
+    private String urFilePath;
+
+    public String getUrFilePath() {
+        return urFilePath;
+    }
+
+    public void setUrFilePath(String urFilePath) {
+        this.urFilePath = urFilePath;
+    }
 
     public String getNombreUsuarioReg() {
         return nombreUsuarioReg;
@@ -52,4 +62,12 @@ public class Usuario {
     public Usuario() {
     }
 
+    public Usuario(String nombreUsuarioReg, String nombreReg, String apellidoReg, String emailReg, String telefonoReg,String urFilePath) {
+        this.nombreUsuarioReg = nombreUsuarioReg;
+        this.nombreReg = nombreReg;
+        this.apellidoReg = apellidoReg;
+        this.emailReg = emailReg;
+        this.telefonoReg = telefonoReg;
+        this.urFilePath = urFilePath;
+    }
 }

@@ -3,6 +3,7 @@ package com.example.mptest1.Vista.LoginView.RegistroView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,11 +24,13 @@ import com.example.mptest1.Presentador.LoginPresentador.LoginPresentador.Present
 import com.example.mptest1.Presentador.LoginPresentador.RegistroPresentador.PresentadorRegistro;
 import com.example.mptest1.R;
 import com.example.mptest1.VistaPrincipal;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.util.regex.Pattern;
@@ -48,13 +51,14 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
     private EditText nEtxtEmail,nEtxtPass,nEtxtNombreUsuario,nEtxtnombre,nEtxtapellido,nEtxtTelefono;
     PresentadorRegistro presentador;
     FirebaseStorage mStorageRef;
+    StorageReference refSto;
 
     // fotos
     private ImageView imagenPerfil;
     private EditText et1;
     Button mbtnGuardar;
     ImageButton cam,galeria;
-    private Uri filepath;
+    private Uri path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,7 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
         //FirebaseStorage storage = FirebaseStorage.getInstance();
 
         mStorageRef = FirebaseStorage.getInstance();
-        StorageReference refSto= mStorageRef.getReference();
+        refSto= mStorageRef.getReference();
 
         FirebaseAuth nAuth = FirebaseAuth.getInstance();
         DatabaseReference mDB = FirebaseDatabase.getInstance().getReference();
@@ -150,6 +154,7 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
     }
     public void recuperarFoto(View v) {
         Intent intentGaleria = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intentGaleria.setType("image/*");
         startActivityForResult(intentGaleria,100);
     }
 
@@ -159,14 +164,78 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Uri filepath;
         if (requestCode == 100 && resultCode == RESULT_OK && data !=null &&data.getData() != null) {
 
+            final ProgressDialog dialog= new ProgressDialog(VistaRegistro1.this);
+            dialog.setMessage("Subiendo Imagen...");
+            dialog.setCancelable(false);
+            dialog.show();
+
             filepath = data.getData();
+
+
+
+            refSto = FirebaseStorage.getInstance().getReference().child("perfil");
+
+            final StorageReference nombre = refSto.child("image"+filepath.getLastPathSegment());
+
+           // refSto.child("Fotos/"+ filepath.getLastPathSegment());
+            nombre.putFile(filepath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            nombre.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    path = uri;
+                                }
+                            });
+
+                            Toast.makeText(VistaRegistro1.this,"Subiendo Imagen",Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+            dialog.dismiss();
+            // presentador.uploadImage(filepath);
             imagenPerfil.setImageURI(data.getData());
         }
         if (requestCode == 200 && resultCode == RESULT_OK && data !=null &&data.getData() != null) {
 
+            final ProgressDialog dialog= new ProgressDialog(VistaRegistro1.this);
+            dialog.setMessage("Subiendo Imagen...");
+            dialog.setCancelable(false);
+            dialog.show();
             filepath = data.getData();
+
+
+
+            refSto = FirebaseStorage.getInstance().getReference().child("perfil");
+
+            final StorageReference nombre = refSto.child("image"+filepath.getLastPathSegment());
+
+            // refSto.child("Fotos/"+ filepath.getLastPathSegment());
+            nombre.putFile(filepath)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            nombre.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    path = uri;
+                                }
+                            });
+
+                            Toast.makeText(VistaRegistro1.this,"Subiendo Imagen",Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+            dialog.dismiss();
+            // presentador.uploadImage(filepath);
+            //imagenPerfil.setImageURI(data.getData());
+
             imagenPerfil.setImageBitmap((Bitmap) data.getExtras() .get("data"));
         }
     }
@@ -196,7 +265,7 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
                    // presentador.uploadImage(filepath);
 
 
-                   presentador.singUpUser(emailInput,passwordInput,nombreInput,nombreUsuario,apellidoInput,telefonoInput,filepath);
+                   presentador.singUpUser(emailInput,passwordInput,nombreInput,nombreUsuario,apellidoInput,telefonoInput,path);
 
                 }
                 break;
@@ -207,11 +276,14 @@ public class VistaRegistro1 extends AppCompatActivity  implements View.OnClickLi
             case R.id.imageGaleria:
                 recuperarFoto(view);
                 break;
+            /*
             case R.id.listarMascotas:
-                // activiti con lista de mascotas de cada ususario
+                ActivitY con lista de mascotas de cada ususario
                 Toast.makeText(VistaRegistro1.this, "Listando  Mascotas", Toast.LENGTH_SHORT).show();
                 
                 break;
+                */
+
         }
 
 

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.mptest1.Modelo.Usuario;
 import com.example.mptest1.VistaPrincipal;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,7 +51,7 @@ public class PresentadorRegistro {
     }
 
 
-    public String uploadImage(final Uri filePath){
+    public void uploadImage(final Uri filePath){
         if (filePath!=null){
 
             final ProgressDialog dialog= new ProgressDialog(mContext);
@@ -59,7 +61,7 @@ public class PresentadorRegistro {
 
 
 
-            mStorageRef.child("Fotos/"+ UUID.randomUUID().toString());
+            mStorageRef.child("Fotos/"+ filePath.getLastPathSegment());
             mStorageRef.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -72,7 +74,7 @@ public class PresentadorRegistro {
             dialog.dismiss();
 
         }
-            return  filePath.toString();
+            //return  filePath.toString();
     }
 
 
@@ -103,12 +105,25 @@ public class PresentadorRegistro {
                             crearUsuario.put("emailReg",email);
                             // crearUsuario.put("passReg",password);
                             crearUsuario.put("telefonoReg",telefono);
-                            crearUsuario.put("UriDowload",uploadImage(filePath));
+                            crearUsuario.put("uriDowloadReg",String.valueOf(filePath));
 
-
+                            Usuario usuario= new Usuario(nombreUsuario,nombre,apellido,email,telefono,String.valueOf(filePath));
+                            String keyUsuario = task.getResult().getUser().getUid();
                             mdb.child("Usuario").child(task.getResult().getUser().getUid()).updateChildren(crearUsuario);
                             // ir a la vista principal
+                            Toast.makeText(mContext, "Usuario Creado "+ keyUsuario, Toast.LENGTH_SHORT).show();
+
+
+
+
+
                             Intent ventanaPrincipal = new Intent(mContext, VistaPrincipal.class);
+
+                            Bundle miBundle = new Bundle();
+                            miBundle.putSerializable("usuario",usuario);
+                            ventanaPrincipal.putExtras(miBundle);
+
+                            // pasar datos al activiti vantanaPrincipal
                             mContext.startActivity(ventanaPrincipal);
                         } else {
 

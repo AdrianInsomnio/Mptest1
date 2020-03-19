@@ -61,11 +61,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/listarMascotas"
-                android:text="@string/listar_mascotas" />
+
 
             <Button
                 android:id="@+id/btnRegistrarUsuario"

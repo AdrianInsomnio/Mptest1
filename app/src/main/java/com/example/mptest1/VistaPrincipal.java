@@ -8,30 +8,39 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mptest1.Adaptadores.AdaptadorPublicacion;
 import com.example.mptest1.Modelo.Publicacion;
+import com.example.mptest1.Modelo.Usuario;
 import com.example.mptest1.Vista.LoginView.RegistroView.VistaRegistro1;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class VistaPrincipal extends AppCompatActivity {
 
     DatabaseReference reference;
+    private Usuario usuarioLogeado;
 
 
-    private CircleImageView imgUsuario;
+    private ImageView imgUsuario;
     private ImageButton btnAgregar,btnActualizar;
 
     private RecyclerView recyclerView;
@@ -44,6 +53,16 @@ public class VistaPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vista_principal);
+
+        Bundle objEnviado= getIntent().getExtras();
+        usuarioLogeado = null;
+        imgUsuario = findViewById(R.id.imgPerUsuario);
+
+        if (objEnviado!= null){
+
+        }
+
+
         list =  new ArrayList<Publicacion>();
 
         recyclerView = (RecyclerView) findViewById(R.id.listadoPost);
@@ -114,5 +133,5 @@ public class VistaPrincipal extends AppCompatActivity {
         });
 
 
-    }
+    } // fin del oncreate
 }
